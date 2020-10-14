@@ -26,9 +26,6 @@ ActiveRecord::Schema.define(version: 2020_10_13_085222) do
     t.string "train_line1"
     t.string "station_name1"
     t.integer "walk_time1"
-    t.string "train_line2"
-    t.string "station_name2"
-    t.integer "walk_time2"
     t.integer "apartment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

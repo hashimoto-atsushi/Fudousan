@@ -15,43 +15,33 @@ class ApartmentsController < ApplicationController
   # GET /apartments/new
   def new
     @apartment = Apartment.new
-    @apartment.stations.new
+    2.times{@apartment.stations.build}
   end
 
   # GET /apartments/1/edit
   def edit
-
+    @apartment.stations.build
   end
 
   # POST /apartments
   # POST /apartments.json
   def create
     @apartment = Apartment.new(apartment_params)
-
-
-    respond_to do |format|
       if @apartment.save
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully created.' }
-        format.json { render :show, status: :created, location: @apartment }
+        redirect_to @apartment, notice: 'Apartment was successfully created.'
       else
-        format.html { render :new }
-        format.json { render json: @apartment.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /apartments/1
   # PATCH/PUT /apartments/1.json
   def update
-    respond_to do |format|
       if @apartment.update(apartment_params)
-        format.html { redirect_to @apartment, notice: 'Apartment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @apartment }
+        redirect_to @apartment, notice: 'Apartment was successfully updated.'
       else
-        format.html { render :edit }
-        format.json { render json: @apartment.errors, status: :unprocessable_entity }
+        render :edit
       end
-    end
   end
 
   # DELETE /apartments/1
@@ -70,11 +60,9 @@ class ApartmentsController < ApplicationController
       @apartment = Apartment.find(params[:id])
     end
 
-
-
-    # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
-      params.require(:apartment).permit(:property_name, :rent, :address, :age, :note, stations_attributes: [:train_line1, :station_name1, :walk_time1, :train_line2, :station_name2, :walk_time2, :apartment_id])
+      params.require(:apartment).permit(:property_name, :rent, :address, :age, :note,
+      stations_attributes: [:train_line1, :station_name1, :walk_time1])
     end
 
 
