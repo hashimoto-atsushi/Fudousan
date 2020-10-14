@@ -25,5 +25,37 @@
   <%= @apartment.note %>
 </p>
 
+<p>
+  <strong>Train line1:</strong>
+  <% @apartment.stations.each do |station| %>
+  <div>
+    <%= station.train_line1 %>
+  </div>
+  <div>
+    <%= station.station_name1 %>
+  </div>
+  <div>
+    <%= station.walk_time1 %>
+  </div>
+  <div>
+    <%= station.train_line2 %>
+  </div>
+  <div>
+    <%= station.station_name2 %>
+  </div>
+  <div>
+    <%= station.walk_time2 %>
+  </div>
+
+  <% end %>
+</p>
+
+
+
+
+
+
+
+
 <%= link_to 'Edit', edit_apartment_path(@apartment) %> |
 <%= link_to 'Back', apartments_path %>

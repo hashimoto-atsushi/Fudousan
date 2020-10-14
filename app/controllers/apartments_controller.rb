@@ -20,13 +20,14 @@ class ApartmentsController < ApplicationController
 
   # GET /apartments/1/edit
   def edit
-    @apartment.station.new
+
   end
 
   # POST /apartments
   # POST /apartments.json
   def create
     @apartment = Apartment.new(apartment_params)
+
 
     respond_to do |format|
       if @apartment.save
@@ -69,8 +70,14 @@ class ApartmentsController < ApplicationController
       @apartment = Apartment.find(params[:id])
     end
 
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def apartment_params
       params.require(:apartment).permit(:property_name, :rent, :address, :age, :note, stations_attributes: [:train_line1, :station_name1, :walk_time1, :train_line2, :station_name2, :walk_time2, :apartment_id])
     end
+
+
+
+
 end
