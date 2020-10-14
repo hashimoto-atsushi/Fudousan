@@ -18,7 +18,7 @@
     <% @apartments.each do |apartment| %>
       <tr>
         <td><%= apartment.property_name %></td>
-        <td><%= apartment.rent %></td>
+        <td><%= apartment.rent.to_s(:delimited, delimiter: ',') %></td>
         <td><%= apartment.address %></td>
         <td><%= apartment.age %></td>
         <td><%= apartment.note %></td>

@@ -36,6 +36,38 @@
     <%= form.text_area :note %>
   </div>
 
+  <div class="field">
+    <%= form.fields_for :stations do |station| %>
+    <%= form.label :train_line1 %>
+    <%= station.text_field :train_line1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :station_name1 %>
+    <%= station.text_field :station_name1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :walk_time1 %>
+    <%= station.number_field :walk_time1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :train_line2 %>
+    <%= station.text_field :train_line2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :station_name2 %>
+    <%= station.text_field :station_name2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :walk_time2 %>
+    <%= station.number_field :walk_time2 %>
+  </div>
+    <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
