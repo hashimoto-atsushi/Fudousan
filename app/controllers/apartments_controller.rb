@@ -10,8 +10,12 @@ class ApartmentsController < ApplicationController
 
   def new
     @apartment = Apartment.new
+    2.times do |i|
+    @i = i
     @apartment.stations.build
+    end
   end
+
   def edit
     @apartment.stations.build
   end

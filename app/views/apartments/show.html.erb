@@ -1,47 +1,50 @@
 <p id="notice"><%= notice %></p>
-
+<h2>物件詳細</h2>
 <p>
-  <strong>Property name:</strong>
+  <strong>物件名: </strong>
   <%= @apartment.property_name %>
 </p>
 
 <p>
-  <strong>Rent:</strong>
-  <%= @apartment.rent %>
+  <strong>賃料:</strong>
+  <%= @apartment.rent.to_s(:delimited) %>円
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>住所:</strong>
   <%= @apartment.address %>
 </p>
 
 <p>
-  <strong>Age:</strong>
-  <%= @apartment.age %>
+  <strong>築年数:</strong>
+  <%= @apartment.age %>年
 </p>
 
 <p>
-  <strong>Note:</strong>
+  <strong>備考:</strong>
   <%= @apartment.note %>
 </p>
+
+<hr>
 <div>
   <% @apartment.stations.each_with_index do |station, i| %>
   <div>
-    <%= i+1 %>
+    <h4>最寄りの駅<%= i+1 %></h4>
   </div>
   <div>
-    <%= station.train_line %>
+
+    <P>路線名  <%= station.train_line %></P>
   </div>
   <div>
-    <%= station.station_name %>
+    <P>駅名  <%= station.station_name %></P>
   </div>
   <div>
-    <%= station.walk_time %>
+    <P>徒歩分数  <%= station.walk_time %></P>
   </div>
   <% end %>
 </div>
 
 
 
-<%= link_to 'Edit', edit_apartment_path(@apartment) %> |
-<%= link_to 'Back', apartments_path %>
+<%= link_to '編集', edit_apartment_path(@apartment) %> |
+<%= link_to '戻る', apartments_path %>
