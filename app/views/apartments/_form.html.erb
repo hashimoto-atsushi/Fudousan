@@ -35,7 +35,7 @@
     <%= form.label :"備考" %>
     <%= form.text_area :note %>
   </div>
-
+  <hr>
   <%= form.fields_for :stations do | station | %>
   <h3>最寄りの駅<%= station.index + 1 %></h3>
   <div class="field">
