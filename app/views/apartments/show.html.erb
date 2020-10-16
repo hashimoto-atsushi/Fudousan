@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+<h2>閲覧</h2>
+<p>
+  <strong>物件名: </strong>
+  <%= @apartment.property_name %>
+</p>
+
+<p>
+  <strong>賃料:</strong>
+  <%= @apartment.rent.to_s(:delimited) %>円
+</p>
+
+<p>
+  <strong>住所:</strong>
+  <%= @apartment.address %>
+</p>
+
+<p>
+  <strong>築年数:</strong>
+  <%= @apartment.age %>年
+</p>
+
+<p>
+  <strong>備考:</strong>
+  <%= @apartment.note %>
+</p>
+
+<hr>
+<div>
+  <% @apartment.stations.each_with_index do |station, i| %>
+  <div>
+    <h4>最寄りの駅<%= i+1 %></h4>
+  </div>
+  <div>
+
+    <P>路線名  <%= station.train_line %></P>
+  </div>
+  <div>
+    <P>駅名  <%= station.station_name %></P>
+  </div>
+  <div>
+    <P>徒歩分数  <%= station.walk_time %></P>
+  </div>
+  <% end %>
+</div>
+
+
+
+<%= link_to '編集', edit_apartment_path(@apartment) %> |
+<%= link_to '戻る', apartments_path %>
